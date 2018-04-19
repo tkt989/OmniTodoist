@@ -1,0 +1,16 @@
+html {
+  width: 500px;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#logging {
+  display: none;
+}
+
+#message {
+  color: #00E676
+}
