@@ -41,6 +41,17 @@ class Api {
     })
   }
 
+  getProjectList() {
+    let syncToken = "*"
+    let resourceTypes = '["projects"]'
+    let params = new URLSearchParams()
+    params.append("token", this.token)
+    params.append("sync_token", syncToken)
+    params.append("resource_types", resourceTypes)
+
+    return instance.post("/api/v7/sync", param)
+  }
+
   addTask(content) {
     let uuid = v4()
     let temp_id = v4()
