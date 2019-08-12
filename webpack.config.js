@@ -1,3 +1,4 @@
+const webpack = require("webpack")
 const path = require("path")
 
 module.exports = {
@@ -11,5 +12,10 @@ module.exports = {
     path: path.resolve(__dirname, "dist")
   },
 
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      CLIENT_ID: JSON.stringify(process.env.CLIENT_ID),
+      CLIENT_SECRET: JSON.stringify(process.env.CLIENT_SECRET)
+    })
+  ]
 }

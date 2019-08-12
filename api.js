@@ -1,6 +1,5 @@
 import axios from "axios"
 import { v4 } from "uuid"
-import apikey from "./apikey.json"
 
 const baseURL = "https://todoist.com"
 const state = v4()
@@ -14,7 +13,7 @@ class Api {
   authorize() {
     return new Promise((resolve, reject) => {
       chrome.identity.launchWebAuthFlow({
-        url: `${baseURL}/oauth/authorize?client_id=${apikey.client_id}&scope=data:read_write&state=${state}`,
+        url: `${baseURL}/oauth/authorize?client_id=${CLIENT_ID}&scope=data:read_write&state=${state}`,
         interactive: true
       }, (responseUrl) => {
         if (responseUrl === undefined) {
@@ -25,8 +24,8 @@ class Api {
         let code = url.searchParams.get("code")
 
         instance.post("/oauth/access_token", {
-          client_id: apikey.client_id,
-          client_secret: apikey.client_secret,
+          client_id: CLIENT_ID,
+          client_secret: CLIENT_SECRET,
           code: code
         }).then(response => {
           if (response === undefined) {
