@@ -9,6 +9,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/chrome": "0.0.88",
+    "dotenv": "^8.0.0",
     "webpack": "^4.6.0",
     "webpack-cli": "^3.3.6"
   },

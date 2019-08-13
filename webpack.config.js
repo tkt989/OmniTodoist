@@ -1,15 +1,17 @@
-const webpack = require("webpack")
-const path = require("path")
+require('dotenv').config()
+
+const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
-  mode: "none",
+  mode: 'none',
   entry: {
-    options: "./options.js",
-    background: "./background.js"
+    options: './options.js',
+    background: './background.js'
   },
 
   output: {
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, 'dist')
   },
 
   plugins: [
