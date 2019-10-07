@@ -52,7 +52,7 @@ class Api {
     params.append('sync_token', syncToken)
     params.append('resource_types', resourceTypes)
 
-    return instance.post('/api/v7/sync', param)
+    return instance.post('/api/v8/sync', param)
   }
 
   addTask(content) {
@@ -74,7 +74,7 @@ class Api {
       ])
     )
 
-    return instance.post('/api/v7/sync', params)
+    return instance.post('/api/v8/sync', params)
   }
 }
 
