@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree -L 2 /Users/takashi/Documents/OmniTodoist -I 'node_modules|.git' 2>/dev/null || find /Users/takashi/Documents/OmniTodoist -not -path '*/\\\\.git/*' -not -path '*/node_modules/*' -type f | sort)",
+      "WebSearch",
+      "WebFetch(domain:developer.chrome.com)",
+      "WebFetch(domain:developer.todoist.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:dev.to)",
+      "WebFetch(domain:groups.google.com)",
+      "WebFetch(domain:smus.com)"
+    ]
+  }
+}
