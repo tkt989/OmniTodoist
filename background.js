@@ -1,28 +1,32 @@
-import axios from 'axios'
-import uuid from 'uuid'
 import api from './api'
 
-const ids = []
+let ids = []
 
 chrome.omnibox.onInputEntered.addListener((text, disposition) => {
   addTask(text)
 })
 
-function addTask(text) {
-  chrome.storage.sync.get(['token'], result => {
-    if (result['token'] === undefined) {
-      chrome.runtime.openOptionsPage()
-      return
-    }
-
-    let token = result['token']
-
-    api.token = token
-    api.addTask(text).then(success(text), error)
+async function addTask(text) {
+  const result = await new Promise(resolve => {
+    chrome.storage.sync.get(['token'], resolve)
   })
+
+  if (result['token'] === undefined) {
+    chrome.runtime.openOptionsPage()
+    return
+  }
+
+  api.token = result['token']
+
+  try {
+    await api.addTask(text)
+    success(text)
+  } catch (e) {
+    error(e)
+  }
 }
 
-const success = text => () => {
+function success(text) {
   chrome.notifications.create(
     null,
     {

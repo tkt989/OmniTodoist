@@ -1,4 +1,3 @@
-import axios from 'axios'
 import api from './api'
 
 chrome.storage.sync.get('token', result => {
@@ -7,10 +6,9 @@ chrome.storage.sync.get('token', result => {
   }
 })
 
-document.querySelector('#login').addEventListener('click', () => {
-  api.authorize().then(() => {
-    loggingIn()
-  })
+document.querySelector('#login').addEventListener('click', async () => {
+  await api.authorize()
+  loggingIn()
 })
 
 document.querySelector('#logout').addEventListener('click', () => {

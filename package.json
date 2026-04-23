@@ -9,13 +9,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "0.0.106",
-    "dotenv": "^8.2.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "uuid": "^8.0.0"
+    "@types/chrome": "^0.0.313",
+    "dotenv": "^16.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^5.0.0"
   }
 }
