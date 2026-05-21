@@ -12,7 +12,7 @@ document.querySelector('#login').addEventListener('click', async () => {
 })
 
 document.querySelector('#logout').addEventListener('click', () => {
-  chrome.storage.sync.set({ token: undefined }, () => {
+  chrome.storage.sync.remove('token', () => {
     document.querySelector('#not-login').style.display = 'block'
     document.querySelector('#logging').style.display = 'none'
   })
