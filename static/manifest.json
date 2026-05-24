@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Omni Todoist",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "icons": {
-    "16": "./img/app@16.png",
-    "48": "./img/app@48.png",
-    "128": "./img/app@128.png"
+    "16": "img/app@16.png",
+    "48": "img/app@48.png",
+    "128": "img/app@128.png"
   },
   "options_ui": {
     "page": "options.html"
@@ -14,6 +14,7 @@
     "service_worker": "background.js"
   },
   "permissions": [
+    "alarms",
     "notifications",
     "identity",
     "storage"
@@ -21,7 +22,6 @@
   "host_permissions": [
     "https://todoist.com/*",
     "https://api.todoist.com/*"
-
   ],
   "omnibox": {
     "keyword": "todo"

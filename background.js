@@ -1,9 +1,18 @@
 import api from './api'
 
-let ids = []
+const CLEAR_NOTIFICATION_PREFIX = 'clear-notification:'
 
 chrome.omnibox.onInputEntered.addListener((text, disposition) => {
   addTask(text)
+})
+
+chrome.alarms.onAlarm.addListener(alarm => {
+  if (!alarm.name.startsWith(CLEAR_NOTIFICATION_PREFIX)) {
+    return
+  }
+
+  const notificationId = alarm.name.slice(CLEAR_NOTIFICATION_PREFIX.length)
+  chrome.notifications.clear(notificationId)
 })
 
 async function addTask(text) {
@@ -36,11 +45,9 @@ function success(text) {
       message: `Success to add a todo\n${text}`
     },
     notificationId => {
-      ids.push(notificationId)
-      setTimeout(() => {
-        ids = ids.filter(id => id !== notificationId)
-        chrome.notifications.clear(notificationId)
-      }, 5000)
+      chrome.alarms.create(`${CLEAR_NOTIFICATION_PREFIX}${notificationId}`, {
+        delayInMinutes: 1
+      })
     }
   )
 }
