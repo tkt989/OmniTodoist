@@ -1,6 +1,6 @@
 {
   "name": "omni-todoist",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "",
   "scripts": {
     "build": "webpack && cp -r static/* dist/",
@@ -9,9 +9,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "^0.1.42",
+    "@types/chrome": "^0.1.43",
     "dotenv": "^17.4.2",
-    "webpack": "^5.107.1",
-    "webpack-cli": "^7.0.2"
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
   }
 }
