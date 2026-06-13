@@ -8,14 +8,6 @@ Omni Todoist is a Chrome extension that lets you add Todoist tasks directly from
 
 Type `todo` in the Chrome address bar, enter your task, and send it to Todoist.
 
-## Requirements
-
-- Node.js
-- npm
-- Google Chrome
-- Todoist account
-- Todoist Developer App Client ID
-
 ## Setup
 
 Install dependencies:
