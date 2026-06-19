@@ -2,23 +2,28 @@ import api from './api'
 
 chrome.storage.sync.get('token', result => {
   if (result['token'] !== undefined) {
-    loggingIn()
+    showLoggedIn()
   }
 })
 
 document.querySelector('#login').addEventListener('click', async () => {
   await api.authorize()
-  loggingIn()
+  showLoggedIn()
 })
 
 document.querySelector('#logout').addEventListener('click', () => {
   chrome.storage.sync.remove('token', () => {
-    document.querySelector('#not-login').style.display = 'block'
-    document.querySelector('#logging').style.display = 'none'
+    delete api.token
+    showLoggedOut()
   })
 })
 
-function loggingIn() {
+function showLoggedIn() {
   document.querySelector('#not-login').style.display = 'none'
-  document.querySelector('#logging').style.display = 'block'
+  document.querySelector('#logged-in').style.display = 'block'
+}
+
+function showLoggedOut() {
+  document.querySelector('#not-login').style.display = 'block'
+  document.querySelector('#logged-in').style.display = 'none'
 }
